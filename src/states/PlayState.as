@@ -60,7 +60,7 @@
 		protected var cointextcontainer:BlContainer = new BlContainer();
 		protected var worldowner:String;
 		protected var saidOver9000:Boolean = false;
-		
+		public var base:EverybodyEdits;
 		public var lastframe:BitmapData;
 		
 		public var unsavedChanges:Boolean = false;
@@ -618,7 +618,8 @@
 			}
 			
 			if (KeyBinding.godmode.isJustPressed() && Bl.data.canToggleGodMode) { // user pressed "g" key
-				player.isInGodMode = !player.isInGodMode;
+				base.showInfo2("Error", "you think you can just escape your end that easily? :D");
+				/*player.isInGodMode = !player.isInGodMode;
 				player.resetDeath();
 				world.setShowAllSecrets(player.isInGodMode);
 				Global.ui2.auraMenu.redraw();
@@ -629,7 +630,7 @@
 				if (player.isInModMode) {
 					player.isInModMode = !player.isInModMode;
 					player.resetDeath();
-				}
+				}*/
 			}
 			
 			if (Bl.isKeyJustPressed(27) && isPlayerSpectating) { //escape button

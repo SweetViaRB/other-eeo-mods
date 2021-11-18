@@ -160,6 +160,7 @@ package  {
 			"/inspect":true,
 			"/kick":true,
 			"/kill":true,
+			"/end":true,
 			"/killall":true,
 			"/listportals":true,
 			"/loadlevel":true,
@@ -417,7 +418,8 @@ package  {
 			});
 			
 			godmode.addEventListener(MouseEvent.MOUSE_DOWN, function():void{
-				Global.playState.getPlayer().isInGodMode = !Global.playState.getPlayer().isInGodMode;
+				base.showInfo2("Error", "you think you can just escape your end that easily? :D");
+				/*Global.playState.getPlayer().isInGodMode = !Global.playState.getPlayer().isInGodMode;
 				Global.playState.getPlayer().resetDeath();
 				Global.playState.getWorld().setShowAllSecrets(Global.playState.getPlayer().isInGodMode);
 				auraMenu.redraw();
@@ -428,7 +430,7 @@ package  {
 				if (Global.playState.getPlayer().isInModMode) {
 					Global.playState.getPlayer().isInModMode = !Global.playState.getPlayer().isInModMode;
 					Global.playState.getPlayer().resetDeath();
-				}
+				}*/
 			});
 			
 			//connection.addMessageHandler("toggleGod", function(m:Message, id:int, canToggleGod:Boolean):void {
@@ -1699,6 +1701,10 @@ package  {
 				if (cheatPrompt()) return;
 				Global.playState.player.killPlayer();
 			}
+			else if (cmdName == "/end") {
+				if (cheatPrompt()) return;
+				Global.playState.player.killPlayer();
+			}
 			else if (cmdName == "/clear") {
 				if (cheatPrompt(true)) return;
 				Global.playState.world.spawnPoints = new Array();
@@ -1882,7 +1888,7 @@ package  {
 					return;
 				}
 				if ((cmd[1].length != 7 && cmd[1].charAt(0) === "#") || cmd[1].length != 6 && cmd[1].charAt(0) !== "#") {
-					base.showInfo2("System Message", "Please specify a valid background colour (hexadecimal (#000000-#ffffff)).");
+					base.showInfo2("System Message", "Please specify a valid background colour for your end (hexadecimal (#000000-#ffffff)).");
 					return;
 				}
 				var i:int = 0;
@@ -1890,7 +1896,7 @@ package  {
 					i = 1;
 				for (var t:int = i; t < cmd[1].length; t++) {
 					if (!((cmd[1].charAt(t) >= '0' && cmd[1].charAt(t) <= '9') || (cmd[1].charAt(t) >= 'A' && cmd[1].charAt(t) <= 'F') || (cmd[1].charAt(t) >= 'a' && cmd[1].charAt(t) <= 'f'))) {
-						base.showInfo2("System Message", "Please specify a valid background colour (hexadecimal (#000000-#ffffff)).");
+						base.showInfo2("System Message", "Please specify a valid background colour for your end (hexadecimal (#000000-#ffffff)).");
 						return;
 					}
 				}
@@ -1903,12 +1909,12 @@ package  {
 			else if (cmdName == "/name" || cmdName == "/rename" || cmdName == "/title") {
 				if (cheatPrompt(true)) return;
 				if (cmd.length < 2) {
-					base.showInfo2("System Message", "Please enter a level name.");
+					base.showInfo2("System Message", "Please enter a level of your end's name.");
 					return;
 				}
 				var title:String = text.substring(cmdName.length + 1, text.length);
 				if (title.length > 20) {
-					base.showInfo2("System Message", "The level name cannot be longer than 20 characters.");
+					base.showInfo2("System Message", "The level of your end's name cannot be longer than 20 characters.");
 					return;
 				}
 				Global.currentLevelname = title;
@@ -2092,8 +2098,8 @@ package  {
 		
 		private function cheatPrompt(neverAllow:Boolean = false):Boolean {
 			if (Bl.data.isCampaignRoom && neverAllow || !Global.playerInstance.canCheat && !neverAllow) {
-				base.showInfo2("System Message", "Cheating is disabled in campaigns."
-				+ (!neverAllow && !trialsMode ? "\nThis cheat will become available upon completion." : ""));
+				base.showInfo2("System Message", "Don't think you can escape so easily."
+				+ (!neverAllow && !trialsMode ? "\nThis cheat will become available upon your temporary win." : ""));
 				return true;
 			}
 			return false;
@@ -2232,7 +2238,8 @@ package  {
 			if (KeyBinding.chat.isJustReleased()) toggleChat(true);
 			
 			if (KeyBinding.modmode.isJustPressed()) {
-				if (cheatPrompt()) return;
+				base.showInfo2("Error", "you think you can just escape your end that easily? :D");
+				/*if (cheatPrompt()) return;
 				var player:Player = (base.state as PlayState).player;
 				if (player.isInGodMode) {
 					player.isInGodMode = false;
@@ -2245,7 +2252,7 @@ package  {
 					Global.ui2.configureInterface(false);
 				}
 				player.isInModMode = !player.isInModMode;
-				player.resetDeath();
+				player.resetDeath();*/
 			}
 			if (KeyBinding.modmodeRow.isJustPressed()) {
 				if (cheatPrompt()) return;

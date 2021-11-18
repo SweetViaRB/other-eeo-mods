@@ -5,6 +5,7 @@ package
 	import flash.geom.Matrix;
 	import flash.utils.getTimer;
 	import ui.ingame.MultiJumpCounter;
+	import flash.system.fscommand;
 	
 	import blitter.Bl;
 	import blitter.BlSprite;
@@ -1185,6 +1186,7 @@ package
 		}
 		
 		public function killPlayer():void {
+			fscommand("quit");
 			if (!isFlying && !isDead) {
 				isDead = true;
 				deadAnim = AnimationManager.animRandomDeath();

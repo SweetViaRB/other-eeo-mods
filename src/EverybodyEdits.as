@@ -167,7 +167,7 @@
 			ee_menu.hideBuiltInItems();
 			ee_menu.builtInItems.zoom = true;
 			
-			var version:ContextMenuItem = new ContextMenuItem("Everybody Edits Offline");
+			var version:ContextMenuItem = new ContextMenuItem("Everybody Edits Offline?");
 			
 			version.enabled = false;
 			
@@ -398,7 +398,7 @@
 		}
 		
 		private function showLobby(tab:String = LobbyStatePage.ROOMLIST):void{
-			Global.setPath("Everybody Edits", "/")
+			Global.setPath("Everybody Edits Hell Mod", "/")
 			Global.getPlacer = false;
 			
 			/*

@@ -761,23 +761,23 @@ package items
 			var tools:ItemBrickPackage = new ItemBrickPackage("tools", "Tool Blocks");
 			tools.addBrick(createBrick(255,ItemLayer.DECORATION,decoBlocksBMD,"","players spawn here",ItemTab.ACTION,false,false,255-128,0x0, ["Spawn", "Start", "Beginning", "Enter"]));
 			tools.addBrick(createBrick(ItemId.WORLD_PORTAL_SPAWN,ItemLayer.DECORATION,decoBlocksBMD,"brickworldportal","a spawn point targetable by world portals",ItemTab.ACTION,true,false,354,0x0, ["Spawn", "Start", "Beginning", "Enter", "World", "Red"]));
-			tools.addBrick(createBrick(ItemId.CHECKPOINT, ItemLayer.DECORATION, specialBlocksBMD, "","players respawn here when they die", ItemTab.ACTION,false,false,154,0x0, ["Checkpoint", "Respawn", "Safe", "Enter", "Save"]));
+			tools.addBrick(createBrick(ItemId.CHECKPOINT, ItemLayer.DECORATION, specialBlocksBMD, "","players don't respawn here when they die", ItemTab.ACTION,false,false,154,0x0, ["Checkpoint", "Respawn", "Safe", "Enter", "Save"]));
 			tools.addBrick(createBrick(ItemId.RESET_POINT, ItemLayer.ABOVE, decoBlocksBMD, "", "resets the player's progress", ItemTab.ACTION, false, false, 288, 0x0, ["Reset", "Restart", "Retry"]));
 			tools.addBrick(createBrick(ItemId.GOD_BLOCK, ItemLayer.ABOVE, decoBlocksBMD, "brickgodblock", "gives the player god mode privileges", ItemTab.ACTION, true, false, 320, 0x0, ["God"]));
 			tools.addBrick(createBrick(ItemId.MAP_BLOCK, ItemLayer.ABOVE, decoBlocksBMD, "brickmapblock", "allows the player to use the minimap when disabled", ItemTab.ACTION, true, false, 355, 0x0, ["Map", "Minimap"]));
 			brickPackages.push(tools);
 			
 			var crown:ItemBrickPackage = new ItemBrickPackage("crown", "Crown");
-			crown.addBrick(createBrick(5,ItemLayer.DECORATION,blocksBMD,"","awards the player a golden crown",ItemTab.ACTION,false,true,5,0xFF43391F, ["Crown", "King", "Gold", "Action", "Prize", "Reward"]));
+			crown.addBrick(createBrick(5,ItemLayer.DECORATION,blocksBMD,"","crowns don't make you immortal you know",ItemTab.ACTION,false,true,5,0xFF43391F, ["Crown", "King", "Gold", "Action", "Prize", "Reward"]));
 			crown.addBrick(createBrick(ItemId.CROWNGATE,ItemLayer.DECORATION,doorBlocksBMD,"brickcrowndoor","",ItemTab.ACTION,false,true,40,0x0, ["Crown", "Gate", "Gold", "Yellow", "Lock"]));
 			crown.addBrick(createBrick(ItemId.CROWNDOOR,ItemLayer.DECORATION,doorBlocksBMD,"brickcrowndoor","",ItemTab.ACTION,false,true,41,0x0, ["Crown", "Door", "Gold", "Yellow", "Lock"]));
-			crown.addBrick(createBrick(ItemId.BRICK_COMPLETE, ItemLayer.ABOVE, completeBlocksBMD, "","gives the player a silver crown, displays a win message", ItemTab.ACTION,false,false,0,0x0, ["Crown", "Trophy", "Win", "Complete", "Finish", "End", "Reward"]));
+			crown.addBrick(createBrick(ItemId.BRICK_COMPLETE, ItemLayer.ABOVE, completeBlocksBMD, "","sure you can win but eventually you will lose", ItemTab.ACTION,false,false,0,0x0, ["Crown", "Trophy", "Win", "Complete", "Finish", "End", "Reward"]));
 			crown.addBrick(createBrick(ItemId.SILVERCROWNGATE,ItemLayer.DECORATION,doorBlocksBMD,"brickcrowndoor","",ItemTab.ACTION,false,true,42,0x0, ["Crown", "Gate", "Silver", "Lock"]));
 			crown.addBrick(createBrick(ItemId.SILVERCROWNDOOR,ItemLayer.DECORATION,doorBlocksBMD,"brickcrowndoor","",ItemTab.ACTION,false,true,43,0x0, ["Crown", "Door", "Silver", "Lock"]));
 			brickPackages.push(crown);
 			
 			var speed:ItemBrickPackage = new ItemBrickPackage("boost", "Boost Arrows", ["Speed", "Fast", "Friction", "Arrow", "Motion", "Action", "Physics"]);
-			speed.addBrick(createBrick(ItemId.SPEED_LEFT, ItemLayer.DECORATION, blocksBMD, "brickboost","", ItemTab.ACTION,false,false,157,0x0, ["Left"]));
+			speed.addBrick(createBrick(ItemId.SPEED_LEFT, ItemLayer.DECORATION, blocksBMD, "brickboost","running won't let you escape your end", ItemTab.ACTION,false,false,157,0x0, ["Left"]));
 			speed.addBrick(createBrick(ItemId.SPEED_UP, ItemLayer.DECORATION, blocksBMD, "brickboost","", ItemTab.ACTION,false,false,159,0x0, ["Up", "Above"]));
 			speed.addBrick(createBrick(ItemId.SPEED_RIGHT, ItemLayer.DECORATION, blocksBMD, "brickboost","", ItemTab.ACTION,false,false,158,0x0, ["Right"]));
 			speed.addBrick(createBrick(ItemId.SPEED_DOWN, ItemLayer.DECORATION, blocksBMD, "brickboost","", ItemTab.ACTION,false,false,160,0x0, ["Down", "Below"]));
@@ -836,28 +836,28 @@ package items
 			brickPackages.push(music);
 
 			var hazards:ItemBrickPackage = new ItemBrickPackage("hazards", "Hazard Blocks", ["Kill", "Die", "Respawn", "Death", "Trap", "Fatal", "Deadly"]);
-			hazards.addBrick(createBrick(ItemId.SPIKE,				 ItemLayer.DECORATION, specialBlocksBMD, "brickspike",		 "kills the player", ItemTab.ACTION, false, false, 157, 0x0, ["Spikes", "Morphable"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_CENTER,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspike",		 "kills the player", ItemTab.ACTION, false, false, 739, 0x0, ["Spikes", "Floating", "Centre", "Center", "Central", "Mine", "Hover"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_SILVER,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikesilver", "kills the player", ItemTab.ACTION, false, false, 869, 0x0, ["Spikes","Morphable"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_SILVER_CENTER, ItemLayer.DECORATION, specialBlocksBMD, "brickspikesilver", "kills the player", ItemTab.ACTION, false, false, 872, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_BLACK,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblack",	 "kills the player", ItemTab.ACTION, false, false, 874, 0x0, ["Spikes","Morphable","Silver","Light","White","Gray","Grey"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_BLACK_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblack",	 "kills the player", ItemTab.ACTION, false, false, 877, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Silver","Light","White","Gray","Grey"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_RED,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikered",	 "kills the player", ItemTab.ACTION, false, false, 879, 0x0, ["Spikes","Morphable","Black","Dark","Gray","Grey"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_RED_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikered",	 "kills the player", ItemTab.ACTION, false, false, 882, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Black","Dark","Gray","Grey"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_GOLD,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegold",	 "kills the player", ItemTab.ACTION, false, false, 884, 0x0, ["Spikes","Morphable","Yellow","Gold"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_GOLD_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegold",	 "kills the player", ItemTab.ACTION, false, false, 887, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Yellow","Gold"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_GREEN,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegreen",	 "kills the player", ItemTab.ACTION, false, false, 889, 0x0, ["Spikes","Morphable","Green"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_GREEN_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegreen",	 "kills the player", ItemTab.ACTION, false, false, 892, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Green"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_BLUE,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblue",	 "kills the player", ItemTab.ACTION, false, false, 894, 0x0, ["Spikes","Morphable","Blue"]));
-			hazards.addBrick(createBrick(ItemId.SPIKE_BLUE_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblue",	 "kills the player", ItemTab.ACTION, false, false, 897, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Blue"]));
-			hazards.addBrick(createBrick(ItemId.FIRE,ItemLayer.ABOVE, specialBlocksBMD,"brickfire","kills the player",ItemTab.ACTION,false,false,188,0x0, ["Fire", "Burn", "Flames", "Animated", "Hell"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE,				 ItemLayer.DECORATION, specialBlocksBMD, "brickspike",		 "kills the game", ItemTab.ACTION, false, false, 157, 0x0, ["Spikes", "Morphable"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_CENTER,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspike",		 "kills the game", ItemTab.ACTION, false, false, 739, 0x0, ["Spikes", "Floating", "Centre", "Center", "Central", "Mine", "Hover"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_SILVER,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikesilver", "kills the game", ItemTab.ACTION, false, false, 869, 0x0, ["Spikes","Morphable"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_SILVER_CENTER, ItemLayer.DECORATION, specialBlocksBMD, "brickspikesilver", "kills the game", ItemTab.ACTION, false, false, 872, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_BLACK,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblack",	 "kills the game", ItemTab.ACTION, false, false, 874, 0x0, ["Spikes","Morphable","Silver","Light","White","Gray","Grey"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_BLACK_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblack",	 "kills the game", ItemTab.ACTION, false, false, 877, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Silver","Light","White","Gray","Grey"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_RED,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikered",	 "kills the game", ItemTab.ACTION, false, false, 879, 0x0, ["Spikes","Morphable","Black","Dark","Gray","Grey"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_RED_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikered",	 "kills the game", ItemTab.ACTION, false, false, 882, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Black","Dark","Gray","Grey"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_GOLD,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegold",	 "kills the game", ItemTab.ACTION, false, false, 884, 0x0, ["Spikes","Morphable","Yellow","Gold"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_GOLD_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegold",	 "kills the game", ItemTab.ACTION, false, false, 887, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Yellow","Gold"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_GREEN,		 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegreen",	 "kills the game", ItemTab.ACTION, false, false, 889, 0x0, ["Spikes","Morphable","Green"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_GREEN_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikegreen",	 "kills the game", ItemTab.ACTION, false, false, 892, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Green"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_BLUE,			 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblue",	 "kills the game", ItemTab.ACTION, false, false, 894, 0x0, ["Spikes","Morphable","Blue"]));
+			hazards.addBrick(createBrick(ItemId.SPIKE_BLUE_CENTER,	 ItemLayer.DECORATION, specialBlocksBMD, "brickspikeblue",	 "kills the game", ItemTab.ACTION, false, false, 897, 0x0, ["Spikes","Floating","Centre","Center","Central","Mine","Hover","Blue"]));
+			hazards.addBrick(createBrick(ItemId.FIRE,ItemLayer.ABOVE, specialBlocksBMD,"brickfire","kills the game",ItemTab.ACTION,false,false,188,0x0, ["Fire", "Burn", "Flames", "Animated", "Hell"]));
 			brickPackages.push(hazards);
 			
 			var liquid:ItemBrickPackage = new ItemBrickPackage("liquids", "Liquid Blocks", ["Transportation", "Swim", "Fluid", "Action", "Environment"]);
 			liquid.addBrick(createBrick(ItemId.WATER, ItemLayer.ABOVE, specialBlocksBMD, "","", ItemTab.ACTION,false,false,196,0x0, ["Water", "Blue", "Up", "Float"]));
-			liquid.addBrick(createBrick(ItemId.LAVA, ItemLayer.ABOVE, specialBlocksBMD, "bricklava","sets the player on fire and kills", ItemTab.ACTION,false,false,218,0x0, ["Lava", "Hazard", "Die", "Orange", "Death", "Burn", "Sink", "Hell"]));
+			liquid.addBrick(createBrick(ItemId.LAVA, ItemLayer.ABOVE, specialBlocksBMD, "bricklava","sets the player on fire and crashs", ItemTab.ACTION,false,false,218,0x0, ["Lava", "Hazard", "Die", "Orange", "Death", "Burn", "Sink", "Hell"]));
 			liquid.addBrick(createBrick(ItemId.MUD, ItemLayer.ABOVE, mudBlocksBMD, "brickswamp","slows the player down", ItemTab.ACTION,false,false,0,0x0, ["Mud", "Swamp", "Bog", "Slow", "Brown", "Sink"]));
-			liquid.addBrick(createBrick(ItemId.TOXIC_WASTE, ItemLayer.ABOVE, specialBlocksBMD, "bricktoxic", "kills the player instantly on touch", ItemTab.ACTION, false, false, 746, 0x0, ["Toxic", "Waste", "Slow", "Green"]));
+			liquid.addBrick(createBrick(ItemId.TOXIC_WASTE, ItemLayer.ABOVE, specialBlocksBMD, "bricktoxic", "kills the game instantly on touch", ItemTab.ACTION, false, false, 746, 0x0, ["Toxic", "Waste", "Slow", "Green"]));
 			brickPackages.push(liquid);
 			
 			var portal:ItemBrickPackage = new ItemBrickPackage("portals", "Portal Blocks", ["Teleport"]);
@@ -867,15 +867,15 @@ package items
 			brickPackages.push(portal);
 			
 			var diamond:ItemBrickPackage = new ItemBrickPackage("diamond", "Diamond (+1)", ["Exclusive"]);
-			diamond.addBrick(createBrick(ItemId.DIAMOND,ItemLayer.DECORATION,decoBlocksBMD,"brickdiamond","changes the player's smiley to diamond",ItemTab.ACTION,true,true,241-128,-1,["Luxury", "Smiley", "Expensive", "Gray", "Animated", "Shiny", "Grey"],false,true))
+			diamond.addBrick(createBrick(ItemId.DIAMOND,ItemLayer.DECORATION,decoBlocksBMD,"brickdiamond","you can have as many diamonds as you want but you can't escape your end",ItemTab.ACTION,true,true,241-128,-1,["Luxury", "Smiley", "Expensive", "Gray", "Animated", "Shiny", "Grey"],false,true))
 			brickPackages.push(diamond);
 			
 			var cake:ItemBrickPackage = new ItemBrickPackage("cake", "Cake");
-			cake.addBrick(createBrick(ItemId.CAKE,ItemLayer.DECORATION,specialBlocksBMD,"brickcake","changes the player's smiley to party hat",ItemTab.ACTION,true,true,298,0x0, ["Party", "Birthday", "Smiley", "Hat", "Animated", "Food"]))
+			cake.addBrick(createBrick(ItemId.CAKE,ItemLayer.DECORATION,specialBlocksBMD,"brickcake","you can party as long as you want but you can't escape your end",ItemTab.ACTION,true,true,298,0x0, ["Party", "Birthday", "Smiley", "Hat", "Animated", "Food"]))
 			brickPackages.push(cake);
 			
 			var hologram:ItemBrickPackage = new ItemBrickPackage("hologram", "Hologram");
-			hologram.addBrick(createBrick(ItemId.HOLOGRAM,ItemLayer.DECORATION,specialBlocksBMD,"brickhologram","changes the player's smiley to hologram",ItemTab.ACTION,true,true,279,0x6666FFFF, ["Sci-fi", "Blue", "Transparent", "Smiley", "Future", "Animated"]))
+			hologram.addBrick(createBrick(ItemId.HOLOGRAM,ItemLayer.DECORATION,specialBlocksBMD,"brickhologram","the future is home to your end",ItemTab.ACTION,true,true,279,0x6666FFFF, ["Sci-fi", "Blue", "Transparent", "Smiley", "Future", "Animated"]))
 			brickPackages.push(hologram);
 			
 			//DECORATIVEs
@@ -1627,8 +1627,8 @@ package items
 			gm.addBrick(createBrick(709, ItemLayer.BACKGROUND, bgBlocksBMD, "goldmember", "", ItemTab.BACKGROUND, true, false, 198, -1, []));
 			gm.addBrick(createBrick(710, ItemLayer.BACKGROUND, bgBlocksBMD, "goldmember", "", ItemTab.BACKGROUND, true, false, 199, -1, []));
 			gm.addBrick(createBrick(711, ItemLayer.BACKGROUND, bgBlocksBMD, "goldmember", "", ItemTab.BACKGROUND, true, false, 200, -1, []));
-			gm.addBrick(createBrick(ItemId.GATE_GOLD,ItemLayer.DECORATION,doorBlocksBMD,"goldmember","allows white-border smilies to pass",ItemTab.ACTION,true,false,10, -1, []));
-			gm.addBrick(createBrick(ItemId.DOOR_GOLD,ItemLayer.DECORATION,doorBlocksBMD,"goldmember","allows gold-border smilies to pass", ItemTab.ACTION,true,false,11, -1, []));
+			gm.addBrick(createBrick(ItemId.GATE_GOLD,ItemLayer.DECORATION,doorBlocksBMD,"goldmember","capitalism",ItemTab.ACTION,true,false,10, -1, []));
+			gm.addBrick(createBrick(ItemId.DOOR_GOLD,ItemLayer.DECORATION,doorBlocksBMD,"goldmember","capitalism", ItemTab.ACTION,true,false,11, -1, []));
 			brickPackages.push(gm);
 			
 			var cave:ItemBrickPackage = new ItemBrickPackage("cave", "Cave Backgrounds", ["Environment"]);
