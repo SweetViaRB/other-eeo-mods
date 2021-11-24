@@ -103,6 +103,9 @@ package items
 		[Embed(source="/../media/blocks_goldeneasteregg.png")] private static var blocksGoldenEasterEggBM:Class;
 		public static var blocksGoldenEasterEggBMD:BitmapData = new blocksGoldenEasterEggBM().bitmapData;
 		
+		[Embed(source="/../media/blocks_auto.png")] private static var blocksAutotileBM:Class;
+		public static var blocksAutotileBMD:BitmapData = new blocksAutotileBM().bitmapData;
+		
 		// ===========
 		
 		private static var bounds:Array = [];
@@ -337,6 +340,8 @@ package items
 		public static var sprShadowL:BlockSprite = new BlockSprite(shadowBlocksBMD, 34, 0, 16, 16, 4, false);
 		public static var sprShadowM:BlockSprite = new BlockSprite(shadowBlocksBMD, 38, 0, 16, 16, 4, false);
 		public static var sprShadowN:BlockSprite = new BlockSprite(shadowBlocksBMD, 42, 0, 16, 16, 4, false);
+		
+		public static var sprAutotile:BlockSprite = new BlockSprite(blocksAutotileBMD, 0, 0, 16, 16, 47, true);
 		
 		public static function init():void
 		{
@@ -1993,6 +1998,15 @@ package items
 			shadows.addBrick(createBrick(ItemId.SHADOW_N, ItemLayer.DECORATION, shadowBlocksBMD, "", "", ItemTab.DECORATIVE, false, false, 43, 0x0, ["Morphable"], false, false, shadowSelectorBG));
 			brickPackages.push(shadows);
 			
+			var autotile:ItemBrickPackage = new ItemBrickPackage("Autotile", "Autotile", ["Autotile"]);
+			autotile.addBrick(createBrick(ItemId.AUTOTILE, ItemLayer.DECORATION, blocksAutotileBMD, "", "", ItemTab.BLOCK, false, true, 0, -1, ["Beta", "Basic", "White", "Black"]));
+			autotile.addBrick(createBrick(ItemId.AUTOTILE_INVERT, ItemLayer.DECORATION, blocksAutotileBMD, "", "", ItemTab.BLOCK, false, true, 20, -1, ["Beta", "Basic", "White", "Black"]));
+			autotile.addBrick(createBrick(ItemId.AUTOTILE_SPACEWINDOW, ItemLayer.DECORATION, blocksAutotileBMD, "", "", ItemTab.BLOCK, false, true, 5, -1, ["Space", "White", "Glass", "Window", "Purple", "Blue"]));
+			autotile.addBrick(createBrick(ItemId.AUTOTILE_WOOD, ItemLayer.DECORATION, blocksAutotileBMD, "", "", ItemTab.BLOCK, false, true, 15, -1, ["Stone","Wood"]));
+			autotile.addBrick(createBrick(ItemId.AUTOTILE_GOLDBRICK, ItemLayer.DECORATION, blocksAutotileBMD, "", "", ItemTab.BLOCK, false, true, 10, -1, ["Brick", "Shiny", "Gold", "Yellow"]));
+			
+			brickPackages.push(autotile);
+			
 			//add npcs brick package declared earlier so they will end up in the end of Action tab.
 			brickPackages.push(npc);
 			
@@ -2325,7 +2339,7 @@ package items
 			var bmd:BitmapData = new BitmapData(16,16,true,0x0);
 			bmd.copyPixels(base, new Rectangle(16*artoffset, 0, 16,16), new Point(0,0))
 			
-			var brick:ItemBrick = new ItemBrick(id, layer, bmd, payvaultid, description, tab, requiresOwnership, requiresAdmin, requiresPurchase, shadow, minimapColor, tags, selectorBG);
+			var brick:ItemBrick = new ItemBrick(id, layer, bmd, payvaultid, description, tab, requiresOwnership, requiresAdmin, requiresPurchase, shadow, minimapColor, tags, artoffset, selectorBG);
 			if(bricks[id] != null ) throw new Error("Error creating new brick '" + payvaultid + "'. Brick id '" + id + "' is already in use"); 
 			bmdBricks[id] = brick.bmd;
 			bricks[id] = brick;
@@ -2662,6 +2676,8 @@ package items
 					return sprShadowM;
 				case ItemId.SHADOW_N:
 					return sprShadowN;
+				case ItemId.AUTOTILE:
+					return sprAutotile;
 				default:
 					return null;
 			}

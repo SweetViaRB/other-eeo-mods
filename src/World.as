@@ -893,7 +893,7 @@ package{
 					
 					// render rotateables, note spikes and portals are not in this list currently
 					
-					if (ItemId.isBlockRotateable(type) && !ItemId.isNonRotatableHalfBlock(type) && type != ItemId.HALLOWEEN_2016_EYES && type != ItemId.FIREWORKS && type != ItemId.DUNGEON_TORCH) {
+					if (ItemId.isBlockRotateable(type) && !ItemId.isNonRotatableHalfBlock(type) && type != ItemId.HALLOWEEN_2016_EYES && type != ItemId.FIREWORKS && type != ItemId.DUNGEON_TORCH && !ItemId.isAutotile(type)) {
 						var rot:int = lookup.getInt(cx, cy);
 						var rotSprite:BlSprite = ItemManager.getRotateableSprite(type);
 						rotSprite.drawPoint(target, point, rot);
@@ -1361,7 +1361,8 @@ package{
 							ItemManager.sprDoors.drawPoint(target, point, teamGateFrame);
 							continue;
 						}
-							
+												
+
 						case ItemId.EFFECT_CURSE: {
 							ItemManager.sprEffect.drawPoint(target, point, lookup.getInt(cx, cy) != 0 ? 4 : 11);
 							continue;
@@ -1445,6 +1446,30 @@ package{
 							ItemManager.sprIce.drawPoint(target, point, 11 - (lookup.getNumber(cx, cy) >> 0) % 12);
 							continue;
 						}
+						case ItemId.AUTOTILE:
+						case ItemId.AUTOTILE_SPACEWINDOW:
+						case ItemId.AUTOTILE_GOLDBRICK:
+						case ItemId.AUTOTILE_INVERT:
+						case ItemId.AUTOTILE_WOOD:
+							{
+							for (var corner:int = 0; corner < 4; corner++){
+								var ctype:int = 4;
+									 if (corner == 0 && getTile(0, cx - 1, cy - 1) != type) ctype = 3;
+								else if (corner == 1 && getTile(0, cx + 1, cy - 1) != type) ctype = 3;
+								else if (corner == 2 && getTile(0, cx - 1, cy + 1) != type) ctype = 3;
+								else if (corner == 3 && getTile(0, cx + 1, cy + 1) != type) ctype = 3;
+									 if (corner < 2 && getTile(0, cx, cy - 1) != type) ctype = 1;
+								else if (corner >= 2 && getTile(0, cx, cy + 1) != type) ctype = 1;
+									 if ((corner == 0 || corner == 2) && getTile(0, cx - 1, cy) != type) ctype = (ctype == 1?0:2);
+								else if ((corner == 1 || corner == 3) && getTile(0, cx + 1, cy) != type) ctype = (ctype == 1?0:2);
+								var xoff:int = (corner % 2 == 1) ? 8 : 0;
+								var yoff:int = corner > 1 ? 8 : 0;
+								target.copyPixels(ItemManager.blocksAutotileBMD, new Rectangle((type - 2001) * 80 + (ctype * 16) + xoff, yoff, 8, 8), new Point(point.x + xoff, point.y + yoff));
+								continue;
+							}
+							continue;
+						}
+						
 							
 						case ItemId.CAVE_TORCH:{
 							ItemManager.sprCaveTorch.drawPoint(target, point, ((offset/2.3 >> 0)+(width-cx)+cy)%12);
@@ -1591,6 +1616,7 @@ package{
 							break;
 						}
 
+
 						case ItemId.WAVE:{
 							ItemManager.sprWave.drawPoint(target, point, ((offset/5 >> 0))%8);
 							break;
@@ -1661,7 +1687,6 @@ package{
 							ItemManager.sprSign.drawPoint(target, point, lookup.getTextSign(cx, cy).type + (isFloating? 4 : 0))
 							break;
 						}
-							
 						case ItemId.LAVA:{
 							ItemManager.sprLava.drawPoint(target, point, ((offset/5 >> 0))%8);
 							break;

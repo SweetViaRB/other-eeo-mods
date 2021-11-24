@@ -20,10 +20,11 @@ package items
 		public var hasShadow:Boolean = false;
 		public var description:String = "";
 		public var tags:Array;
+		public var artoffset:int;
 		public var selectorBG:int;
 		
 		public var minimapColor:Number
-		public function ItemBrick(id:int, layer:int, bmd:BitmapData, payvaultid:String, description:String, tab:int, requiresOwnership:Boolean, requiresAdmin:Boolean, requiresPurchase:Boolean, shadow:Boolean, minimapColor:Number, tags:Array, selectorBG:int = 0){
+		public function ItemBrick(id:int, layer:int, bmd:BitmapData, payvaultid:String, description:String, tab:int, requiresOwnership:Boolean, requiresAdmin:Boolean, requiresPurchase:Boolean, shadow:Boolean, minimapColor:Number, tags:Array, artoffset:int, selectorBG:int = 0){
 			this.id = id;
 			this.layer = layer;
 			
@@ -37,6 +38,7 @@ package items
 			this.requiresAdmin = requiresAdmin;
 			this.requiresPurchase = requiresPurchase;
 			this.hasShadow = shadow;
+			this.artoffset = artoffset;
 			this.tags = tags || [];
 			
 			this.selectorBG = selectorBG;

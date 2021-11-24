@@ -301,6 +301,12 @@ package items
 		public static const DUNGEON_LOCK:int = 1601;
 		public static const DUNGEON_CHAIN:int = 1602;
 		
+		public static const AUTOTILE:int = 2001;
+		public static const AUTOTILE_SPACEWINDOW:int = 2002;
+		public static const AUTOTILE_GOLDBRICK:int = 2003;
+		public static const AUTOTILE_WOOD:int = 2004;
+		public static const AUTOTILE_INVERT:int = 2005;
+		
 		public static const SHADOW_A:int = 1596;
 		public static const SHADOW_B:int = 1605;
 		public static const SHADOW_C:int = 1606;
@@ -367,7 +373,8 @@ package items
 			return !isClimbable(id) &&
 			(((9 <= id && id <= 97) ||     //9 <= id <= 97
 			(122 <= id && id <= 217) ||    //122 <= id <= 217
-			(id >= 1001 && id <= 1499)) && //1001 <= id <= 1499 
+			(id >= 1001 && id <= 1499) ||//1001 <= id <= 1499 
+			(id >= 2001 && id <= 2499)) && 
 			id != 83 && id != 77);
 		}
 		/* 
@@ -692,6 +699,16 @@ package items
 				{	
 					return true;
 				}
+			}
+			return false;
+		}
+		
+		public static function isAutotile(id:int):Boolean{
+			switch (id) {
+				case ItemId.AUTOTILE:
+				case ItemId.AUTOTILE_SPACEWINDOW:
+				case ItemId.AUTOTILE_GOLDBRICK:
+					return true;
 			}
 			return false;
 		}
